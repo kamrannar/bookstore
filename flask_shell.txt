@@ -1,0 +1,46 @@
+from models import *
+
+Genre data :
+
+autobio=Genre(genre='Autobioqrafiya')
+autobio.save()
+
+roman=Genre(genre='Roman')
+roman.save()
+
+elmi=Genre(genre='Elmi')
+elmi.save()
+
+Language data :
+
+aze=Language(lang='Azərbaycanca')
+aze.save()
+
+eng=Language(lang='İngiliscə')
+eng.save()
+
+Book data :
+
+incognito=Book(title='Incognito', author= 'David Eagleman', price= '15.00 AZN', description= 'Tanınmış nevroloq D.İqlmenin 20-dən çox dilə tərcümə edilən və indidən klassik əsərə çevrilən bu kitabı <b>beynin sirli dünyası</b>na təcrübələr, elmi biliklər və tarixi faktlar işığında səyahət edir. Kitab tibbi mövzuda olsa da, müəllif yazarlıq məharətini və zəngin biliyini birləşdirərək elmi faktları sadə və müqayisəli dillə oxucularına təqdim edir. Müəllif əsər boyu sədaqət geni, qumarbazlara çevrilən parkinson xəstələri, gen-mühit əlaqəsi, "yaxşı" və "pis" gen, şüuraltı və qərarvermə mexanizmi, məsuliyyət anlayışı, beynin insan həyatında rolu kimi bir çox mövzulara toxunur. Alim bu mövzuların beyinlə əlaqəsini izah etməklə kifayətlənmir, beyinlə bağlı müxtəlif formullar və modellər irəli sürür. İnsan psixologiyası və davranışlarına neyron və gen prizmasından baxmağı öyrədir. Elmi-populyar dildə yazılmış bu kitab xüsusən müəllimlər, psixoloqlar, valideynlər, həkimlər üçün mühüm bilikləri ehtiva edir.', stock=2,genre_id=3,publisher='Qanun nəşriyyat',lang_id=1,image_url="images/book_img/inkognito.jpeg")
+
+incognito.save()
+
+animal_farm=Book(title='Animal Farm', author= 'George Orwell', price= '17.00 AZN', description= 'Animal Farm is a satirical allegorical novella by George Orwell, first published in England on 17 August 1945. The book tells the story of a group of farm animals who rebel against their human farmer, hoping to create a society where the animals can be equal, free, and happy. ',genre_id=2,lang_id=2,stock=2,publisher='Penguin Books',image_url="images/book_img/animal_farm.jpeg")
+
+animal_farm.save()
+
+raven=Book(title='Raven', author= 'Edgar Allan Poe', price= '22.00 AZN', description= "Once upon a midnight dreary, while I pondered, weak and weary... - thus begins perhaps the most-quoted poem ever written in the English Language. Edgar Allan Poe's The Raven is illustrated with Alen James Robinson's masterful etchings and wood engravings", stock=2,genre_id=2,lang_id=2,publisher='Moyer Bell ',image_url="images/book_img/raven.jpeg")
+
+raven.save()
+
+sefiller=Book(title='Səfillər', author= 'Victor Hugo', price= '21.00 AZN', description= 'Yalnız fransız ədəbiyyatının deyil, dünya ədəbiyyatının da ən gör-kəmli sima-la-rın-dan sayılan Viktor Hüqo özünün parlaq istedadının məhsulu olan əsərləri ilə bə-şər bədii fikri tarixini zənginləşdirmişdir. XIX əsrin bu korifey sənətkarının ya-radıcılığı ümumbəşər mənəvi sərvətləri xəzinəsində özünəməxsus yer tutur. Hüqo dühası, Hüqo irsi yer üzünün bütün xalqları üçün doğma və əzizdir. Hüqonun tükənməz yaradıcılıq aləmində “Səfıllər” romanının xüsusi çəkisi var. Dahi rus yazıçısı Lev Tolstoyun “fransız ədəbiyyatının ən yaxşı romanı” adlandırdığı bu ölməz əsər, demək olar, bütün dünya dillərinə tərcümə olunaraq müəllifinə əbədi şöhrət qa-zan-dırmışdır. Hamı üçün yazılmış “Səfillər” bu gün də qapıları döyür: “Açın, biz sizə gəlmişik”de-yir. Ölməz ədibin sahilsiz kədərinin ayrılmaz parçası olan bu şah əsəri hər bir insana mənəvi cəhətdən zənginlik qazandıracaq qüdrətə sahib romandır. Əgər “Səfillər” olmasaydı, dünya ədəbiyyatı həqiqətən də bir xeyli yoxsul görünərdi. ',lang_id=1, stock=2,genre_id=2, publisher='Qanun nəşriyyat',image_url="images/book_img/sefiller.jpeg")
+
+sefiller.save()
+
+homage_to_catalonia=Book(title='Homage to Catalonia',description="In 1936 George Orwell travelled to Spain to report on the Civil War and instead joined the fight against the Fascists. This famous account describes the war and Orwell’s own experiences. Introduction by Lionel Trilling.",author="George Orwell",price='9.00 AZN', stock=2,genre_id=1,lang_id=2,publisher='Harcourt, Inc.(Harvest Book)',image_url="images/book_img/homage_to_catalonia.jpeg")
+    
+homage_to_catalonia.save()
+
+hotel=Book(title='Hotel', author= 'Arthur Hailey', price= '13.00 AZN', description= 'During five days in the midst of a hot, steamy Louisiana summer, the lives of a colorful cast of characters intertwine in a series of public, private, and personal dramas at the famed St. Gregory luxury hotel.', lang_id=2,stock=2,genre_id=2,publisher='Berkley',image_url="images/book_img/hotel.jpeg")
+
+hotel.save()

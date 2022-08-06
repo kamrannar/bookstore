@@ -1,0 +1,30 @@
+
+.row .col-2 img,.grid-item img{
+  max-height:100%;
+  max-width:100%;
+}
+div.lazy div img{
+  max-width: 200px;
+  max-height: 200px;
+}
+.fa-remove{
+  font-size:16px;color:red
+}
+
+.fa.fa-shopping-cart.me-3.text-wrap.position-relative{
+  font-size:24px;color: white;
+}
+.filter button{
+  margin-left: 10px;
+  background-color: transparent;
+}
+nav,footer,.grid a,.lazy_grand-parent,#add{
+ background-color:#109E97;
+}
+
+#fav,#like{
+  color:black;font-size:36px
+}
+#jumbotron{
+  background-image:url('../images/jumbotron.jpg')
+}

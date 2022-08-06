@@ -1,0 +1,112 @@
+{% extends "layout.html"%}
+{%from '_formhelpers.html' import render_field%}
+{%block head%}
+    {{super()}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Ayın kitabı</title>      
+  {% endblock %}
+    {%block content%}
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-4 ">
+          <img class="w-75 " src="{{ url_for('static', filename= paths) }} " >
+        </div>
+        <div class="col-8  d-flex flex-column align-items-end">
+          <h3>{{titles}}</h3>
+          <span class="fw-bold " style="color: green; font-size: 25px">{{prices}}<span class=" fw-lighter  text-decoration-line-through text-danger fs-6"></span></span>
+          <p class="text-end mt-3">{{descriptions|safe}}</p>
+          <div class="d-flex ">
+            <i id="like"class="fa fa-thumbs-up d-flex m-3 "></i>
+          <i id="fav" class="fa fa-heart d-flex m-3"></i>
+            <button type="button" id="add" class="btn mb-3 m-3 text-white" >Səbətə əlavə et</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex  my-4 py-2">
+          <div class="alert alert-warning w-100 text-center" id="left" role="alert">
+            Bu kitabdan cəmi 2 ədəd qalıb
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="text-center">Xüsusiyyətlər</h3>
+          <table class="table table-striped border-top">
+            <thead >
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Xüsusiyyəti</th>
+                <th scope="col">Açıqlama</th>
+              </tr>
+            </thead>
+            <tbody class="border-top-0">
+              <tr>
+                <th scope="row" >1</th>
+                <td>Dil:</td>
+                <td>{{languages}}</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Janr:</td>
+                <td>{{genres}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td >Müəllif:</td>
+                <td>{{authors}}</td>
+              </tr>
+              <tr >
+                <th scope="row">4</th>
+                <td>Nəşriyyat:</td>
+                <td>{{publishers}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h1 class="text-center">Şərh yaz</h1>
+          <form method="POST">
+            {{form.csrf_token}}
+            {{render_field(form.full_name)}}
+            {{render_field(form.comment)}}
+            {{render_field(form.read)}}
+            {{render_field(form.language)}}
+            <button type="submit" class="btn btn-primary my-4" >Submit</button> 
+          </form>    
+          <div class="comments">
+            {%for i in user %}
+            {%if i.comment_index==book_ind%}
+            <h3>Username: {{i.comment_name}}</h3>
+            <br>
+            <p>Comment: {{i.comment}}</p>
+            <br>
+            <h6>Language of book: {{i.comment_language}}</h3>
+            <br>
+            <h6>Comment created : {{i.created_at}}</h3>
+            <hr>
+            {%endif%}
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='lazy_grand-parent p-5 border-bottom'>
+      <p class='text-light text-center'style="font-size: 30px">Bütün kitablar</p>
+      <div class="container lazy_container">
+        <div class="lazy">
+          <div class="d-flex justify-content-center"><a href="/book/2/"><img src="{{url_for('static',filename='images/book_img/animal_farm.jpeg')}}"></a></div>
+          <div class="d-flex justify-content-center"><a href="/book/3/"><img src="{{url_for('static',filename='images/book_img/raven.jpeg' )}}"></a></div>
+          <div class="d-flex justify-content-center"><a href="/book/5/"><img src="{{url_for('static',filename='images/book_img/homage_to_catalonia.jpeg' )}}"></a></div>
+          <div class="d-flex justify-content-center"><a href="/book/6/"><img src="{{url_for('static',filename='images/book_img/hotel.jpeg')}}" ></a></div>
+          <div class="d-flex justify-content-center"><a href="/book/1/"><img src="{{url_for('static',filename='images/book_img/inkognito.jpeg')}}" ></a></div>
+          <div class="d-flex justify-content-center"><a href="/book/4/"><img src="{{url_for('static',filename='images/book_img/sefiller.jpeg')}}" ></a></div>
+        </div>
+      </div>
+    </div>  
+    {%endblock%}
+  {%block script%}
+  {{super()}}
+  <script src="{{url_for('static',filename='js/product.js')}}"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  {%endblock%}
